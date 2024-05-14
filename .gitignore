@@ -1,0 +1,7 @@
+# OS
+.DS_Store
+
+# Development
+node_modules
+backend
+

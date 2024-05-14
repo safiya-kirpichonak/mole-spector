@@ -1,0 +1,62 @@
+.header {
+  background-color: "#0079CC";
+  align-items: "flex-start";
+  justify-content: "center";
+  height: 40;
+  top: 0;
+  left: 0;
+}
+.headerText {
+  color: "#ffffff";
+  font-size: 20;
+  font-weight: "bold";
+  margin-left: "20px";
+}
+.image {
+  width: "100px";
+  height: "100px";
+}
+.percent {
+  display: "flex";
+  justify-Content: "center";
+  align-items: "center";
+}
+.percentText {
+  color: "#2A4964";
+  font-size: 40;
+}
+.percentGray {
+  width: 200;
+  height: 1;
+  border: "1px solid #CCCCCC";
+}
+.percentBlue {
+  position: "absolute";
+  left: "50%";
+  transform: "translateX(-50%)";
+  width: 100;
+  height: 7;
+  border: "5px solid #00BFFF";
+}
+.text {
+  margin: 12;
+  font-size: 14;
+  text-align: "justify";
+  font-family: "Times-Roman";
+  color: "#2A4964";
+}
+.danger {
+  background-color: "#0079CC";
+  align-items: "flex-start";
+  justify-content: "center";
+  top: 0;
+  left: 0;
+}
+.dangerImage {
+  width: "50px";
+  height: "50px";
+}
+.dangetText {
+  color: "#FFFFFF";
+  font-size: 12;
+}

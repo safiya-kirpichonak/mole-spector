@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "image",
+    "title": "Step #1",
+    "description": "After registration, by clicking on the 'Send a photo' button, you access the form page."
+  },
+  {
+    "icon": "cube",
+    "title": "Step #2",
+    "description": "Fill this form and send us a photo of your mole. Your diagnostic results will be saved and you can see them in your profile."
+  },
+  {
+    "icon": "receipt",
+    "title": "Step #3",
+    "description": "The neural net will process the photo and assess the likelihood of you having a malignant tumor."
+  }
+]

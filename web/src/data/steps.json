@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Seek Expert Medical Advice",
+    "description": "Consult a dermatologist or oncologist for evaluation and recommendations.",
+    "icon": "fa-hospital-user"
+  },
+  {
+    "title": "Confirm Diagnosis",
+    "description": "Undergo additional testing, such as a biopsy, to confirm if the mole is malignant.",
+    "icon": "fa-flask"
+  },
+
+  {
+    "title": "Consider Treatment Options",
+    "description": "If the mole is malignant, discuss treatment options with your doctor and make an informed decision.",
+    "icon": "fa-user-md"
+  }
+]

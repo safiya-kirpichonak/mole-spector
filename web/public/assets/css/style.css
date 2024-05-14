@@ -1,0 +1,7 @@
+#hero {
+  background: url("../img/hero-bg.jpg") no-repeat center / cover, #5e5d5d99;
+}
+
+#dark #hero {
+  background: url("../img/hero-bg.jpg") no-repeat center / cover, #1a1a1a99;
+}

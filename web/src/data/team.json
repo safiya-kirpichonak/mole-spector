@@ -1,0 +1,20 @@
+[
+  {
+    "src": "assets/img/team/svyatoslav.jpg",
+    "name": "Svyatoslav Gladun",
+    "position": "Developer of this neural network.",
+    "description": "Some kind of inspiring message."
+  },
+  {
+    "src": "assets/img/team/darya.jpg",
+    "name": "Darya Anacko",
+    "position": "Developer of the server in this project.",
+    "description": "Some kind of inspiring message."
+  },
+  {
+    "src": "assets/img/team/sofia.jpg",
+    "name": "Sofia Kirpichonak",
+    "position": "Developer of the client part in this project.",
+    "description": "Some kind of inspiring message."
+  }
+]
