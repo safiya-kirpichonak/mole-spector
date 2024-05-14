@@ -12,22 +12,9 @@ const ProfilePage = () => {
 
   useEffect(() => {
     (async () => {
-      let responce = await fetch("http://localhost:8000/api/user", {
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-      if (responce.status !== 200) {
-        window.location.href = "/";
-      } else {
-        const content = await responce.json();
-        setName(content.name);
-        setEmail(content.email);
-        setHide(false);
-      }
-      responce = await fetch("http://localhost:8000/api/analyses", {
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
+      setName("Default name");
+      setEmail("Default email");
+      setHide(false);
     })();
   });
 

@@ -41,20 +41,8 @@ const SignUpSection = () => {
       setPassword("");
       return;
     }
-    const responce = await fetch("http://localhost:8000/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-      }),
-    });
-    if (responce.status !== 200) {
-      setError("Something went wrong, please, try again.");
-    } else {
-      window.location.href = "/sign-in";
-    }
+    localStorage.setItem("isAuth", true);
+    window.location.href = "/sign-in";
   };
 
   return (

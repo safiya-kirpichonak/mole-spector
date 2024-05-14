@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { postEmail } from "../../../../axios/postEmail";
 import InputFormEmail from "../../send-photo-form/input-form-email";
 
 const EditEmail = () => {
@@ -16,15 +15,8 @@ const EditEmail = () => {
     if (newEmail) {
       const data = new FormData();
       data.append("newEmail", newEmail);
-      postEmail(data)
-        .then((_) => {
-          setResult("Your email was successfully changed!");
-          setNewEmail("");
-        })
-        .catch((_) => {
-          setResult("Your email wasn't changed.");
-          setNewEmail("");
-        });
+      setResult("Your email was successfully changed!");
+      setNewEmail("");
     }
   };
 

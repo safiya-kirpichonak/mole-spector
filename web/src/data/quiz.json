@@ -1,0 +1,86 @@
+{
+  "questions": [
+    {
+      "question": "What are the symptoms of melanoma?",
+      "answers": [
+        { "0": "Irregular borders, different shades, large size" },
+        { "1": "Irregular borders, different shades, large size" },
+        { "2": "Smooth borders, uniform color, small size" },
+        { "3": "Smooth borders, different shades, large size" }
+      ],
+      "correctAnswer": "0",
+      "description": "Melanoma is characterized by irregular borders, different shades, and a large size. It is important to be aware of these symptoms and seek medical attention if any signs of melanoma are noticed. Source: https://www.mayoclinic.org/diseases-conditions/melanoma/symptoms-causes/syc-20374884"
+    },
+    {
+      "question": "What are the risk factors for developing skin cancer?",
+      "answers": [
+        { "0": "Smoking and alcohol consumption" },
+        { "1": "Heredity and old age" },
+        { "2": "Sedentary lifestyle and excessive consumption of fatty foods" },
+        { "3": "Frequent tanning bed use and unprotected sun exposure" }
+      ],
+      "correctAnswer": "3",
+      "description": "The risk factors for developing skin cancer include frequent tanning bed use and unprotected sun exposure. It is important to protect the skin from harmful UV radiation by using sunscreen and practicing sun-safe behaviors. Source: https://www.cancer.org/cancer/skin-cancer/prevention-and-early-detection.html"
+    },
+    {
+      "question": "What precautions should be taken to protect against skin cancer during prolonged exposure to the sun?",
+      "answers": [
+        { "0": "Anoint protective cream with SPF 15 or higher" },
+        { "1": "Wear protective clothing" },
+        { "2": "Avoid direct sunlight from 10 am to 4 pm" },
+        { "3": "All of the above" }
+      ],
+      "correctAnswer": "3",
+      "description": "The correct answer is 'All of the above' because taking multiple precautions is necessary to protect against skin cancer during prolonged exposure to the sun. Anointing protective cream with SPF 15 or higher, wearing protective clothing, and avoiding direct sunlight from 10 am to 4 pm are all important measures to reduce the risk of skin cancer. Source: Centers for Disease Control and Prevention, https://www.cdc.gov/cancer/skin/basic_info/sun-safety.htm"
+    },
+    {
+      "question": "What color of skin is most at risk of developing skin cancer?",
+      "answers": [
+        { "0": "Very light" },
+        { "1": "Light" },
+        { "2": "Average" },
+        { "3": "Dark" }
+      ],
+      "correctAnswer": "0",
+      "description": "People with very light skin who burn easily and tan badly have the greatest risk of developing skin cancer. This is due to the fact that skin with very light color contains less melanin, which protects the skin from ultraviolet rays. Source: American Cancer Society https://www.cancer.org/cancer/skin-cancer/prevention-and-early-detection/what-is-skin-cancer.html"
+    },
+    {
+      "question": "Which of the following is a possible sign of skin cancer?",
+      "answers": [
+        { "0": "Sharp back pain" },
+        { "1": "New moles" },
+        { "2": "Visual impairment" },
+        { "3": "Shortness of breath" }
+      ],
+      "correctAnswer": "1",
+      "description": "A possible sign of skin cancer is the presence of new moles. It is important to monitor any changes in moles, such as changes in size, shape, color, or texture, as these may indicate the development of skin cancer. For more information, please visit: https://www.cancer.org/cancer/skin-cancer.html"
+    },
+    {
+      "question": "Which of the listed areas of the body are most frequently affected by the development of skin cancer?",
+      "answers": [
+        { "0": "Face and neck" },
+        { "1": "Arms and legs" },
+        { "2": "Chest and abdomen" },
+        { "3": "Palms and feet" }
+      ],
+      "correctAnswer": "0",
+      "description": "Most frequently, the face and neck are affected by the development of skin cancer, as stated by the American Academy of Dermatology Association. It is crucial to protect these areas from excessive sun exposure and regularly monitor the skin for any changes that may indicate skin cancer. For more information, you can refer to the following. Source: American Academy of Dermatology Association. (2020). Skin Cancer. https://www.aad.org/public/diseases/skin-cancer"
+    },
+    {
+      "question": "Which of the following methods are used to treat skin cancer?",
+      "answers": [
+        { "0": "Chemotherapy" },
+        { "1": "Radiation" },
+        { "2": "Surgical removal" },
+        { "3": "All the above methods" }
+      ],
+      "correctAnswer": "3",
+      "description": "Skin cancer can be treated using multiple methods, including chemotherapy, radiation, and surgical removal. These treatment options may be used individually or in combination, depending on the specific type and stage of skin cancer. For more detailed information, please refer to the provided source. Source: American Cancer Society. (2021). Skin Cancer. https://www.cancer.org/cancer/skin-cancer.html"
+    }
+  ],
+  "results": {
+    "low": "Low level of knowledge about skin cancer. It is recommended to deepen knowledge and consult a dermatologist.",
+    "medium": "The average level of knowledge about skin cancer. It is recommended to study in more detail information about the signs, treatment and prevention of skin cancer.",
+    "high": "High level of knowledge about skin cancer. However, do not forget prevention and regularly undergo examination with a dermatologist."
+  }
+}

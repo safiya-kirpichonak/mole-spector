@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { postName } from "../../../../axios/postName";
-
 const EditName = () => {
   const [result, setResult] = useState("");
   const [name, setName] = useState("");
@@ -15,15 +13,8 @@ const EditName = () => {
     if (name) {
       const data = new FormData();
       data.append("newName", name);
-      postName(data)
-        .then((_) => {
-          setResult("Your name was successfully changed!");
-          setName("");
-        })
-        .catch((_) => {
-          setResult("Your name wasn't changed.");
-          setName("");
-        });
+      setResult("Your name was successfully changed!");
+      setName("");
     }
   };
 
@@ -31,7 +22,7 @@ const EditName = () => {
     <div className="container">
       <form onSubmit={onSubmit} className="email-form">
         <p
-        className="simple-text"
+          className="simple-text"
           style={{
             marginTop: "10px",
             marginButtom: "10px",

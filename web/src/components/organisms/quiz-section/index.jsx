@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import EdgeBlocksQuiz from "../../molecules/edge-blocks-quiz";
 import SectionTitle from "../../atoms/section-title";
 import QuestionQuiz from "../../molecules/question-quiz";
-import { getQuiz } from "../../../axios/getQuiz";
+import data from "../../../data/quiz.json";
 
 const QuizSection = () => {
   const [highestScore, setHighestScore] = useState(0);
@@ -14,16 +14,10 @@ const QuizSection = () => {
   const [presentQuestion, setPresentQuestion] = useState(-1);
 
   const startQuiz = () => {
-    getQuiz()
-      .then((data) => {
-        setHighestScore(data.questions.length * 10);
-        setLength(data.questions.length);
-        setPresentQuestion(0);
-        setQuiz(data);
-      })
-      .catch((_) => {
-        window.location.href = "/error-500";
-      });
+    setHighestScore(data.questions.length * 10);
+    setLength(data.questions.length);
+    setPresentQuestion(0);
+    setQuiz(data);
   };
 
   const calculateScore = (addedScore) => {

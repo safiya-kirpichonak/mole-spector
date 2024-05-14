@@ -1,0 +1,18 @@
+{
+  "80+": {
+    "percent": "80% and above",
+    "description": "There is a high probability of skin cancer. It is strongly recommended to seek immediate medical attention for a thorough evaluation and proper diagnosis."
+  },
+  "20-79": {
+    "percent": "20% to 79%",
+    "description": "There is a moderate probability of skin cancer. It is advisable to consult a healthcare professional, such as a dermatologist, for further evaluation and guidance."
+  },
+  "0-19": {
+    "percent": "0% to 19%",
+    "description": "There is a mild probability of skin cancer. It is recommended to schedule a check-up with a dermatologist to assess the condition and discuss appropriate preventive measures."
+  },
+  "negative": {
+    "percent": "Below 0%",
+    "description": "The probability of skin cancer is low. However, it is still important to continue practicing good sun protection habits, such as wearing sunscreen and protective clothing, to minimize the risk of developing skin cancer."
+  }
+}

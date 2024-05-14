@@ -4,7 +4,6 @@ import "./style.css";
 import InputForm from "../../atoms/input-form";
 import SubmitButton from "../../atoms/submit-button";
 import TextAreaForm from "../../atoms/textarea-form";
-import { postContact } from "../../../axios/postContact";
 import Loading from "../../atoms/loader";
 import Captcha from "../../atoms/captcha";
 
@@ -30,15 +29,8 @@ const ContactForm = () => {
       data.append("name", name);
       data.append("subject", subject);
       data.append("message", message);
-      postContact(data)
-        .then((_) => {
-          setLoading(false);
-          setResult({ isSuccess: true });
-        })
-        .catch((_) => {
-          setLoading(false);
-          setResult({ isSuccess: false });
-        });
+      setLoading(false);
+      setResult({ isSuccess: true });
     }
   };
 

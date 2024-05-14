@@ -21,18 +21,6 @@ const SendPhoto = () => {
     setResult(data);
   };
 
-  useEffect(() => {
-    (async () => {
-      const responce = await fetch("http://localhost:8000/api/user", {
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-      if (responce.status !== 200) {
-        window.location.href = "/";
-      }
-    })();
-  });
-
   return (
     <div>
       <Header auth={isAuth} />

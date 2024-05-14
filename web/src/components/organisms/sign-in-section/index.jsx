@@ -5,7 +5,7 @@ import SectionTitle from "../../atoms/section-title";
 const SignInSection = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error] = useState("");
   const [show, setShow] = useState(false);
 
   const handlerEmailChange = (event) => {
@@ -23,20 +23,8 @@ const SignInSection = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const responce = await fetch("http://localhost:8000/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-    if (responce.status !== 200) {
-      setError("Something went wrong, please, try again.");
-    } else {
-      window.location.href = "/profile";
-    }
+    localStorage.setItem("isAuth", true);
+    window.location.href = "/profile";
   };
 
   return (

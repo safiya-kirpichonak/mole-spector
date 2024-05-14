@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../atoms/section-title";
-import { getAnalyses } from "../../../axios/getAnalyses";
 
 const AnalysesSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,13 +15,8 @@ const AnalysesSection = () => {
 
   useEffect(() => {
     (async () => {
-      try {
-        const data = await getAnalyses();
-        setAnalyses(data);
-      } catch (error) {
-        console.error("Error loading analyses:", error);
-        setAnalyses([]);
-      }
+      const data = [{ date: "01-01-2023", result: 0 }];
+      setAnalyses(data);
     })();
   }, []);
 

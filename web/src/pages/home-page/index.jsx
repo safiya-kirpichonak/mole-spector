@@ -5,11 +5,9 @@ import Footer from "../../components/organisms/footer";
 import Header from "../../components/organisms/header";
 import HeroSection from "../../components/organisms/hero-section";
 import Intstruction from "../../components/organisms/instruction";
-import TeamSection from "../../components/organisms/team-section";
 
 import contacts from "../../data/contacts.json";
 import instructions from "../../data/instructions.json";
-import team from "../../data/team.json";
 import { checkIsAuth } from "../../service/checkIsAuth";
 
 const HomePage = () => {
@@ -27,7 +25,6 @@ const HomePage = () => {
       <HeroSection />
       <main id="main">
         <Intstruction data={instructions} />
-        <TeamSection data={team} />
         <Contact data={contacts} />
       </main>
       <Footer />

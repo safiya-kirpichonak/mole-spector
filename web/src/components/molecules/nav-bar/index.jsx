@@ -1,16 +1,11 @@
 import React from "react";
 
 import LogoButton from "../../atoms/logo-button";
-import BlueButton from "../../atoms/blue-button";
 import ThemeSwitcher from "../../atoms/theme-switcher";
 
 const NavBar = ({ auth }) => {
   const logoutHandler = async () => {
-    await fetch("http://localhost:8000/api/logout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+    localStorage.removeItem("isAuth");
     window.location.href = "/";
   };
 

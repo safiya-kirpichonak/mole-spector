@@ -8,7 +8,6 @@ import checkPhoto from "../../../service/checkPhoto";
 import Loading from "../../atoms/loader";
 import Captcha from "../../atoms/captcha";
 import { getCroppedImg } from "../../../service/cropImage";
-import { postSendPhoto } from "../../../axios/postSendPhoto";
 
 const SendPhotoForm = ({ setResultHandler }) => {
   const [loading, setLoading] = useState(false);
@@ -96,18 +95,12 @@ const SendPhotoForm = ({ setResultHandler }) => {
         const data = new FormData();
         data.append("photo", result.croppedPhoto);
         setLoading(true);
-        postSendPhoto(data)
-          .then((result) => {
-            setResultHandler({ ...result, url: image.src, isSuccess: true });
-          })
-          .catch((_) =>
-            setResultHandler({
-              code: 500,
-              message:
-                "Something went wrong, we’ll send you the results in the mail you pointed out.",
-              isSuccess: false,
-            })
-          );
+        setResultHandler({
+          percent: 0,
+          url: image.src,
+          isSuccess: true,
+          description: "These results are not real.",
+        });
       };
     }
   };
@@ -170,7 +163,7 @@ const SendPhotoForm = ({ setResultHandler }) => {
                 type="checkbox"
                 checked={isChecked}
                 onChange={handleCheckboxChange}
-                style={{margin: "0 12px 0 0"}}
+                style={{ margin: "0 12px 0 0" }}
               />
               By sending a photo you agree with the
               <a href="/privacy-policy"> privacy policy</a>

@@ -89,7 +89,7 @@ const ResultSection = ({ result }) => {
                 />
               }
               fileName="scan-results.pdf"
-              key={isChecked} // Добавляем ключ для перезаписи файла
+              key={isChecked}
             >
               {({ loading }) =>
                 loading ? (

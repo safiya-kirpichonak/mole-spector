@@ -1,9 +1,9 @@
 import React from "react";
 
-import SectionTitle from "../../atoms/section-title";
-import EditName from "./edit-name.js";
-import EditEmail from "./edit-email.js";
+import EditName from "./edit-name";
+import EditEmail from "./edit-email";
 import EditPassword from "./edit-password";
+import SectionTitle from "../../atoms/section-title";
 
 const SettingsSection = ({ name, email }) => {
   return (

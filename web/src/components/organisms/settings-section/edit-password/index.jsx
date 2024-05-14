@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { postPassword } from "../../../../axios/postPassword";
 import checkPassword from "../../../../service/checkPassword";
 
 const EditPassword = () => {
@@ -38,17 +37,9 @@ const EditPassword = () => {
       const data = new FormData();
       data.append("oldPassword", presentPassword);
       data.append("newPassword", newPassword);
-      postPassword(data)
-        .then((_) => {
-          setResult("Your password was successfully changed!");
-          setPresentNewPassword("");
-          setNewPassword("");
-        })
-        .catch((_) => {
-          setResult("Your password wasn't changed.");
-          setPresentNewPassword("");
-          setNewPassword("");
-        });
+      setResult("Your password was successfully changed!");
+      setPresentNewPassword("");
+      setNewPassword("");
     }
   };
 
