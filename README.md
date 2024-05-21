@@ -1,4 +1,4 @@
-# SkinCancerStop
+# SkinCancerStop [Stopped]
 
 This is a simple application on React. The main idea was to create a simple application that would allow users to upload images and get a prediction of whether the image contains a mole or not. I created only a client part of this
 application, original server used Python + Django, current app has no server and the application doesn't use AI now, so its just a client part.
