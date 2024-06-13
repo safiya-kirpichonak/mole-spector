@@ -1,9 +1,13 @@
-# SkinCancerStop
+# MoleSpector [In progress]
 
-This is a simple application on React. The main idea was to create a simple application that would allow users to upload images and get a prediction of whether the image contains a mole or not. I created only a client part of this
-application, original server used Python + Django, current app has no server and the application doesn't use AI now, so its just a client part.
+This is a simple application on React / Express / Python. 
 
-# Usage
+Initially, I worked on this small project as part of a team for our graduation project, which we named "SkinCancerStop." I was responsible for the client side, while two other developers handled the server and the neural network. However, it remained a prototype and never saw the light of day.
+
+Over time, I developed an interest in neural networks and was looking for a project to practice on. I remembered our old prototype and decided to revive it. I removed unnecessary features, rewrote the server, and created a new neural network. Now, it's a refined project that anyone can use. I don't intend to use it commercially or claim the original idea as solely mine. I also renamed the project to distinguish it from the initial prototype, which was a collaborative effort.
+
+
+## Web usage
 
 Open "web" folder
 
@@ -27,6 +31,6 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Gratitude
+## Gratitude
 
 Theme is [here](https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/)

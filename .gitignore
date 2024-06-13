@@ -3,5 +3,4 @@
 
 # Development
 node_modules
-backend
-
+.vscode
