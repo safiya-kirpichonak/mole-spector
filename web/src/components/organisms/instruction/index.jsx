@@ -8,12 +8,7 @@ const Intstruction = ({ data }) => {
     <section id="why-us" className="why-us">
       <div className="container">
         <div className="row">
-          <BlueCard
-            title="How does SkinCancerStop work?"
-            description="You can help us train our neural network. By processing photos,
-                our neural network is learning to produce more accurate results."
-          />
-
+          <BlueCard title="How does MoleSpector work?" />
           <div className="col-lg-8 d-flex align-items-stretch">
             <div className="icon-boxes d-flex flex-column justify-content-center">
               <div className="row">

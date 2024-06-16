@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import ImageCrop from "./image-crop";
 
 import "./style.css";
+import Loading from "../../atoms/loader";
 import DragDropFile from "./drag-drop-file";
 import SubmitButton2 from "./submit-button-2";
 import checkPhoto from "../../../service/checkPhoto";
-import Loading from "../../atoms/loader";
-import Captcha from "../../atoms/captcha";
 import { getCroppedImg } from "../../../service/cropImage";
 
 const SendPhotoForm = ({ setResultHandler }) => {
@@ -18,7 +17,6 @@ const SendPhotoForm = ({ setResultHandler }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [photos, setPhotos] = useState(null);
   const [firstPhoto, setFirstPhoto] = useState(null);
-  const [captcha, setCaptcha] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
@@ -76,7 +74,7 @@ const SendPhotoForm = ({ setResultHandler }) => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    if (photo && isChecked && captcha) {
+    if (photo && isChecked) {
       setDisabled(true);
       const image = new Image();
       image.src = URL.createObjectURL(photo);
@@ -120,10 +118,6 @@ const SendPhotoForm = ({ setResultHandler }) => {
     setCroppedImageFor(id);
   };
 
-  const captchaHandle = () => {
-    setCaptcha(!captcha);
-  };
-
   return (
     <div>
       {loading ? (
@@ -156,7 +150,6 @@ const SendPhotoForm = ({ setResultHandler }) => {
             deletePhotoHandler={deletePhotoHandler}
             editPhotoHandler={editPhotoHandler}
           />
-
           <div style={{ marginTop: "10px", textAlign: "center" }}>
             <label className="simple-text">
               <input
@@ -169,8 +162,6 @@ const SendPhotoForm = ({ setResultHandler }) => {
               <a href="/privacy-policy"> privacy policy</a>
             </label>
           </div>
-
-          <Captcha onChange={captchaHandle} />
           <SubmitButton2 disabled={disabled} />
         </form>
       )}

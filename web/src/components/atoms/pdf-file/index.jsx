@@ -109,7 +109,7 @@ const PDFFile = ({ result, description, warning }) => {
     <Document>
       <Page style={styles.body}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>SkinCancerStop</Text>
+          <Text style={styles.headerText}>MoleSpector</Text>
         </View>
         <View style={styles.imageView}>
           <Image style={styles.image} src={result.url} />

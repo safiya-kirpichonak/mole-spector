@@ -1,9 +1,8 @@
 import React from "react";
 
-import ContactBar from "../../molecules/contact-bar";
 import NavBar from "../../molecules/nav-bar";
-
 import contacts from "../../../data/contacts.json";
+import ContactBar from "../../molecules/contact-bar";
 
 const Header = ({ auth }) => {
   return (

@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="me-md-auto text-center text-md-start">
           <div className="copyright">
             <strong>
-              <span>SkinCancerStop</span>
+              <span>MoleSpector</span>
             </strong>
             . <a href="/privacy-policy">Pricacy Policy</a>
           </div>

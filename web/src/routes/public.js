@@ -8,17 +8,13 @@ import {
   ERROR_404_ROUTE,
   ERROR_500_ROUTE,
   QUIZ_ROUTE,
-  LOGIN_ROUTE,
-  SIGNUP_ROUTE,
 } from "./consts";
 
 import HomePage from "../pages/home-page";
+import QuizPage from "../pages/quiz-page";
 import ErrorPage from "../pages/error-page";
 import SendPhotoPage from "../pages/send-photo-page";
 import PrivacyPolicyPage from "../pages/privacy-policy-page";
-import QuizPage from "../pages/quiz-page";
-import SignInPage from "../pages/sign-in-page";
-import SignUpPage from "../pages/sign-up-page";
 
 export const publicRoutes = [
   {
@@ -40,14 +36,6 @@ export const publicRoutes = [
   {
     path: QUIZ_ROUTE,
     element: <QuizPage />,
-  },
-  {
-    path: LOGIN_ROUTE,
-    element: <SignInPage/>,
-  },
-  {
-    path: SIGNUP_ROUTE,
-    element: <SignUpPage/>,
   },
   {
     path: ERROR_500_ROUTE,
