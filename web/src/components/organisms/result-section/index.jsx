@@ -4,19 +4,18 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import "./style.css";
 
 import steps from "../../../data/steps.json";
-
-import ResultDescription from "../../molecules/result-description";
-import Steps from "../../molecules/steps";
-import BigImageCenter from "../../atoms/big-image-center";
-import PDFFile from "../../atoms/pdf-file";
-import Button from "../../atoms/button";
-
 import data from "../../../data/description.json";
 
+import ResultDescription from "../../molecules/result-description";
+import BigImageCenter from "../../atoms/big-image-center";
+import PDFFile from "../../atoms/pdf-file";
+import Steps from "../../molecules/steps";
+import Button from "../../atoms/button";
+
 const ResultSection = ({ result }) => {
-  const [description, setDescription] = useState("");
   const [warning, setWarning] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [description, setDescription] = useState("");
 
   const handleCheckboxChange = async () => {
     setIsChecked(!isChecked);

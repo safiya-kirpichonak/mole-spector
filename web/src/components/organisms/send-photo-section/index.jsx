@@ -11,7 +11,7 @@ const SendPhotoSection = ({ setResultHandler }) => {
           <div style={{ marginTop: "140px", marginBottom: "100px" }}>
             <SectionTitle
               title="Send a photo"
-              description="Download 1 square photo in PNG format. JPEG format is not accepted, also your photo in any case will be automatically cut to square form."
+              description="Download one square photo in JPG/JPEG format. PNG format is not accepted. Your photo will be automatically cropped to a square, so please ensure it is square and as close as possible to the mole, so only it is visible in the photo. The minimum image size is 300x300 px."
             />
             <SendPhotoForm setResultHandler={setResultHandler} />
           </div>

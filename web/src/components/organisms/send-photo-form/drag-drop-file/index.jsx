@@ -32,7 +32,7 @@ const DragDropFile = ({
   };
 
   return (
-    <div style={{ height: "200px", weight: "200px" }}>
+    <div style={{ height: "300px", weight: "300px" }}>
       <label
         htmlFor="input-file-upload"
         className={drag ? "drag-active" : "label-file-upload"}

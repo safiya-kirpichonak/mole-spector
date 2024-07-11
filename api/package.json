@@ -1,0 +1,19 @@
+{
+  "name": "API of MoleSpector",
+  "author": "Sofiya Kirpichonak",
+  "version": "1.0.0",
+  "description": "API for running AI for MoleSpector.",
+  "main": "index.js",
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "setup:py": "python3 -m venv ./src/ai/env && source ./src/ai/env/bin/activate && pip3 install -r ./src/ai/requirements.txt",
+    "dev": "npm run setup:py && node ./node_modules/.bin/nodemon --env-file .env index.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

@@ -1,26 +1,64 @@
+import Joi from "joi";
 import React, { useState } from "react";
-import ImageCrop from "./image-crop";
 
 import "./style.css";
+import ImageCrop from "./image-crop";
 import Loading from "../../atoms/loader";
+import ai from "../../../httpRequests/ai";
 import DragDropFile from "./drag-drop-file";
 import SubmitButton2 from "./submit-button-2";
-import checkPhoto from "../../../service/checkPhoto";
-import { getCroppedImg } from "../../../service/cropImage";
+import { getCroppedImg } from "./image-crop/getCroppedImg";
 
 const SendPhotoForm = ({ setResultHandler }) => {
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
-  const [urlPhoto, setUrlPhoto] = useState(null);
   const [photo, setPhoto] = useState("");
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [photos, setPhotos] = useState(null);
-  const [firstPhoto, setFirstPhoto] = useState(null);
+  const [photos, setPhotos] = useState("");
+  const [urlPhoto, setUrlPhoto] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState("");
 
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+  const checkPhotoSchema = Joi.object({
+    width: Joi.number().min(300).required(),
+    height: Joi.number().min(300).required(),
+    type: Joi.string().valid("image/jpg", "image/jpeg").required(),
+  });
+
+  const checkPhoto = async (photo) => {
+    if (!photo) throw new Error("No image provided!");
+
+    const reader = new FileReader();
+
+    return new Promise((resolve, reject) => {
+      reader.readAsDataURL(photo);
+
+      reader.onloadend = () => {
+        const img = new Image();
+        img.src = reader.result;
+
+        img.onload = async () => {
+          try {
+            await checkPhotoSchema.validateAsync({
+              type: photo.type,
+              width: img.width,
+              height: img.height,
+            });
+            resolve({ width: img.width, height: img.height });
+          } catch (validationError) {
+            reject(validationError);
+          }
+        };
+
+        img.onerror = () => {
+          reject(new Error("Error loading image."));
+        };
+      };
+
+      reader.onerror = () => {
+        reject(new Error("Error reading file."));
+      };
+    });
   };
 
   const onDropHandler = async (event) => {
@@ -34,7 +72,6 @@ const SendPhotoForm = ({ setResultHandler }) => {
     }
     if (!error) {
       const url = URL.createObjectURL(photo);
-      setFirstPhoto(photo);
       setPhoto(photo);
       setUrlPhoto(url);
       setPhotos([{ id: 1, imageUrl: url, croppedImageUrl: null }]);
@@ -51,25 +88,10 @@ const SendPhotoForm = ({ setResultHandler }) => {
     }
     if (!error) {
       const url = URL.createObjectURL(photo);
-      setFirstPhoto(photo);
       setPhoto(photo);
       setUrlPhoto(url);
       setPhotos([{ id: 1, imageUrl: url, croppedImageUrl: null }]);
     }
-  };
-
-  const deletePhotoHandler = () => {
-    setFirstPhoto(null);
-    setPhoto(null);
-    setUrlPhoto(null);
-  };
-
-  const editPhotoHandler = () => {
-    setSelectedPhoto({ id: 1, imageUrl: urlPhoto, croppedImageUrl: null });
-  };
-
-  const onCancelCropHandler = () => {
-    setSelectedPhoto(null);
   };
 
   const submitHandler = async (event) => {
@@ -90,17 +112,39 @@ const SendPhotoForm = ({ setResultHandler }) => {
           height: maxSize,
         });
 
-        const data = new FormData();
-        data.append("photo", result.croppedPhoto);
         setLoading(true);
+        const response = await ai.analyze(result);
+
+        if (response.error) {
+          setResultHandler({
+            code: 500,
+            isSuccess: false,
+            message: "Error while processing image.",
+          });
+          return;
+        }
+
         setResultHandler({
-          percent: 0,
           url: image.src,
           isSuccess: true,
-          description: "These results are not real.",
+          percent: response[response.predicted_class],
+          description: `Result: ${response.predicted_class}, non-cancerous mole: ${response["non-cancerous mole"]}%, melanoma: ${response["melanoma"]}%.`,
         });
       };
     }
+  };
+
+  const deletePhotoHandler = () => {
+    setPhoto(null);
+    setUrlPhoto(null);
+  };
+
+  const editPhotoHandler = () => {
+    setSelectedPhoto({ id: 1, imageUrl: urlPhoto, croppedImageUrl: null });
+  };
+
+  const onCancelCropHandler = () => {
+    setSelectedPhoto(null);
   };
 
   const setCroppedImageFor = (id, crop, zoom, aspect, croppedImageUrl) => {
@@ -111,11 +155,6 @@ const SendPhotoForm = ({ setResultHandler }) => {
     newPhotosList[index] = newPhoto;
     setPhotos(newPhotosList);
     setSelectedPhoto(null);
-  };
-
-  const resetImage = (id) => {
-    setPhoto(firstPhoto);
-    setCroppedImageFor(id);
   };
 
   return (
@@ -130,14 +169,13 @@ const SendPhotoForm = ({ setResultHandler }) => {
             {selectedPhoto && (
               <ImageCrop
                 id={selectedPhoto.id}
-                imageUrl={selectedPhoto.imageUrl}
                 cropInit={selectedPhoto.crop}
                 zoomInit={selectedPhoto.zoom}
                 aspectInit={selectedPhoto.aspect}
-                setCroppedImageFor={setCroppedImageFor}
-                onCancel={onCancelCropHandler}
-                resetImage={resetImage}
+                imageUrl={selectedPhoto.imageUrl}
                 setPhoto={setPhoto}
+                onCancel={onCancelCropHandler}
+                setCroppedImageFor={setCroppedImageFor}
               />
             )}
           </div>
@@ -147,16 +185,16 @@ const SendPhotoForm = ({ setResultHandler }) => {
             urlPhoto={urlPhoto}
             onDropHandler={onDropHandler}
             onUploadHandler={onUploadHandler}
-            deletePhotoHandler={deletePhotoHandler}
             editPhotoHandler={editPhotoHandler}
+            deletePhotoHandler={deletePhotoHandler}
           />
           <div style={{ marginTop: "10px", textAlign: "center" }}>
             <label className="simple-text">
               <input
                 type="checkbox"
                 checked={isChecked}
-                onChange={handleCheckboxChange}
                 style={{ margin: "0 12px 0 0" }}
+                onChange={() => setIsChecked(!isChecked)}
               />
               By sending a photo you agree with the
               <a href="/privacy-policy"> privacy policy</a>

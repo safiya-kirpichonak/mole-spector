@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import Cropper from "react-easy-crop";
+import React, { useState } from "react";
 
-import { getCroppedImg } from "../../../../service/cropImage";
+import { getCroppedImg } from "./getCroppedImg";
 
 const aspectRatios = [{ value: 4 / 4, text: "4/4" }];
 
@@ -10,25 +10,19 @@ const ImageCrop = ({
   imageUrl,
   cropInit,
   zoomInit,
-  aspectInit,
   onCancel,
+  setPhoto,
+  aspectInit,
   setCroppedImageFor,
-  resetImage,
-  setPhoto
 }) => {
-  if (zoomInit == null) {
-    zoomInit = 1;
-  }
-  if (cropInit == null) {
-    cropInit = { x: 0, y: 0 };
-  }
-  if (aspectInit == null) {
-    aspectInit = aspectRatios[0];
-  }
+  if (zoomInit == null) zoomInit = 1;
+  if (cropInit == null) cropInit = { x: 0, y: 0 };
+  if (aspectInit == null) aspectInit = aspectRatios[0];
+
+  const [aspect] = useState(aspectInit);
   const [zoom, setZoom] = useState(zoomInit);
   const [crop, setCrop] = useState(cropInit);
-  const [aspect] = useState(aspectInit);
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  const [croppedParameters, setCroppedParameters] = useState(null);
 
   const onCropChange = (crop) => {
     setCrop(crop);
@@ -38,21 +32,14 @@ const ImageCrop = ({
     setZoom(zoom);
   };
 
-  const onCropComplete = (croppedArea, croppedAreaPixels) => {
-    setCroppedAreaPixels(croppedAreaPixels);
+  const onCropComplete = (_, croppedParameters) => {
+    setCroppedParameters(croppedParameters);
   };
 
   const onCrop = async () => {
-    const { croppedImageUrl, croppedPhoto } = await getCroppedImg(
-      imageUrl,
-      croppedAreaPixels
-    );
-    setPhoto(croppedPhoto);
-    setCroppedImageFor(id, crop, zoom, aspect, croppedImageUrl);
-  };
-
-  const onResetImage = () => {
-    resetImage(id);
+    const croppedPhoto = await getCroppedImg(imageUrl, croppedParameters);
+    setCroppedImageFor(id, crop, zoom, aspect, croppedPhoto.imageUrl);
+    setPhoto(croppedPhoto.imageFile);
   };
 
   return (
@@ -60,9 +47,9 @@ const ImageCrop = ({
       <div className="backdrop"></div>
       <div className="crop-container">
         <Cropper
-          image={imageUrl}
           zoom={zoom}
           crop={crop}
+          image={imageUrl}
           aspect={aspect.value}
           onCropChange={onCropChange}
           onZoomChange={onZoomChange}
@@ -77,15 +64,12 @@ const ImageCrop = ({
             max={3}
             step={0.1}
             value={zoom}
-            onInput={(e) => {
-              onZoomChange(e.target.value);
-            }}
             className="slider"
+            onInput={(e) => onZoomChange(e.target.value)}
           ></input>
         </div>
         <div className="button-area">
           <button onClick={onCancel}>Cancel</button>
-          <button onClick={onResetImage}>Reset</button>
           <button onClick={onCrop}>Crop</button>
         </div>
       </div>

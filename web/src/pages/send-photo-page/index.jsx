@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import ResultSection from "../../components/organisms/result-section";
-import SendPhotoSection from "../../components/organisms/send-photo-section";
-import ErrorMessage from "../../components/molecules/error-message";
 import Header from "../../components/organisms/header";
 import Footer from "../../components/organisms/footer";
-import { checkIsAuth } from "../../service/checkIsAuth";
+import ErrorMessage from "../../components/molecules/error-message";
+import ResultSection from "../../components/organisms/result-section";
+import SendPhotoSection from "../../components/organisms/send-photo-section";
 
 const SendPhoto = () => {
-  const [isAuth, setIsAuth] = useState(false);
   const [result, setResult] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      await checkIsAuth(setIsAuth);
-    })();
-  });
 
   const setResultHandler = (data) => {
     setResult(data);
@@ -23,7 +15,7 @@ const SendPhoto = () => {
 
   return (
     <div>
-      <Header auth={isAuth} />
+      <Header />
       <div className="send-photo-section">
         {result ? (
           result.isSuccess ? (

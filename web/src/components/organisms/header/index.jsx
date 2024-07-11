@@ -4,11 +4,11 @@ import NavBar from "../../molecules/nav-bar";
 import contacts from "../../../data/contacts.json";
 import ContactBar from "../../molecules/contact-bar";
 
-const Header = ({ auth }) => {
+const Header = () => {
   return (
     <div>
       <ContactBar email={contacts[0].data} />
-      <NavBar auth={auth} />
+      <NavBar />
     </div>
   );
 };
