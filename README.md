@@ -1,4 +1,4 @@
-# MoleSpector [In progress]
+# MoleSpector [Completed]
 
 This is a simple application on React / Node.js / Python.
 
@@ -94,10 +94,13 @@ To use new AI model in the app, put it to ./api/src/ai/mole_spector_ai.h5, or re
 fix the path in the API.
 
 I choose 500 images for every category. The result is 92.25%:
+
+```
 13/13 - 8s - 611ms/step - accuracy: 0.9225 - loss: 0.6892
+```
 
 ## Gratitude
 
-Theme is [here](https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/).
-Dataset 1 is [here](https://www.kaggle.com/datasets/adisongoh/skin-moles-benign-vs-malignant-melanoma-isic19).
-Dataset 2 is [here](https://www.kaggle.com/datasets/hasnainjaved/melanoma-skin-cancer-dataset-of-10000-images).
+- Theme is [here](https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/).
+- Dataset 1 is [here](https://www.kaggle.com/datasets/adisongoh/skin-moles-benign-vs-malignant-melanoma-isic19).
+- Dataset 2 is [here](https://www.kaggle.com/datasets/hasnainjaved/melanoma-skin-cancer-dataset-of-10000-images).
