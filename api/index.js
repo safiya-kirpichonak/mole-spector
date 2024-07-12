@@ -9,7 +9,7 @@ const sandbox = require("./src/config/sandbox.js");
 const server = require(`./src/transport/${config.server.transport}`);
 
 const load = async (filePath, sandbox) => {
-  const RUN_OPTIONS = { timeout: 5000, displayErrors: false };
+  const RUN_OPTIONS = { timeout: 1000, displayErrors: false };
   const src = await fs.readFile(filePath, "utf8");
   const code = `'use strict';\n${src}`;
   const script = new vm.Script(code);
